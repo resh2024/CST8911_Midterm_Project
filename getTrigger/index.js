@@ -4,13 +4,14 @@ module.exports = async function (context, req) {
   try {
     const allDocuments = context.bindings.documents;
 
+    const simplifiedData = allDocuments.map((doc) => ({
+      id: doc.id,
+      products: doc.products,
+    }));
+
     context.res = {
       status: 200,
-      body: {
-        message: "Successfully retrieved all documents",
-        count: allDocuments.length,
-        data: allDocuments,
-      },
+      body: simplifiedData,
     };
   } catch (error) {
     context.log.error("Error fetching documents:", error);
