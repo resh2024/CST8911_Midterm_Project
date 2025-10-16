@@ -1,0 +1,25 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "documents",
+      "databaseName": "test_1",
+      "containerName": "container_test_1",
+      "connection": "CosmosDBConnectionString",
+      "sqlQuery": "SELECT * FROM c"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
