@@ -1,0 +1,26 @@
+module.exports = async function (context, req) {
+  context.log("Fetching all documents from Cosmos DB");
+
+  try {
+    const allDocuments = context.bindings.documents;
+
+    context.res = {
+      status: 200,
+      body: {
+        message: "Successfully retrieved all documents",
+        count: allDocuments.length,
+        data: allDocuments,
+      },
+    };
+  } catch (error) {
+    context.log.error("Error fetching documents:", error);
+
+    context.res = {
+      status: 500,
+      body: {
+        error: "Failed to fetch documents",
+        message: error.message,
+      },
+    };
+  }
+};
