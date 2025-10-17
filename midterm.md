@@ -52,3 +52,22 @@
 ## Connecting the Trigger by adding function context into the function.json to post data the database
 
 ![alt text](image-16.png)
+
+## Created App Service Web app for the Auth Server
+
+![alt text](image-17.png)
+
+### In the Web app we connected our github account to setup a CI/CD pipeline for our Auth Server
+
+![alt text](image-18.png)
+
+### We created env variables for the Auth server
+
+These variable we added
+
+- AZURE_GET_URL
+- AZURE_POST_URL
+- JWT_SECRET
+- PORT
+
+![alt text](image-19.png)
