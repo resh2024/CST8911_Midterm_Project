@@ -1,5 +1,8 @@
 # CST8911 Midterm Project
 
+[Auth-Server Source Code](https://github.com/OlivBerg/auth-server)
+[Auth-Server Documentation](https://github.com/OlivBerg/auth-server/blob/main/readme.md)
+
 ## Scenario 1
 
 ## Screenshots
@@ -25,10 +28,6 @@
 ### postTrigger
 
 ![alt text](image-12.png)
-
-### updateTrigger
-
-![alt text](image-14.png)
 
 ### Adding the cosmoDB connection string
 
