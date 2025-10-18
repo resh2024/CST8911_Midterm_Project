@@ -82,6 +82,6 @@ These variable were added:
 
 ![alt text](image-22.png)
 
-## Retrieveing products from our DB
+## Retrieving products from our DB
 
 ![alt text](image-23.png)
