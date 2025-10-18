@@ -71,3 +71,19 @@ These variable we added
 - PORT
 
 ![alt text](image-19.png)
+
+## Creating a VM to test our Authentication
+
+![alt text](image-20.png)
+
+## Creating a session with the Auth server hosted through a VM
+
+![alt text](image-21.png)
+
+## Sending a POST request to add a product to our db
+
+![alt text](image-22.png)
+
+## Retrieveing products from our DB
+
+![alt text](image-23.png)
