@@ -5,21 +5,19 @@
 
 ## Scenario 1
 
-## Screenshots
+## Policy Error
 
 ![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+
+**Note: We had a policy error trying to use the region US East and needed to use Canada Central and West US 2 instead.**
 
 ## Creating a Function App
 
 ![alt text](image-7.png)
 
-## Creating Get, Post, Delete and Update httptriggers
+## Creating GET and POST HTTP trigger functions
 
 ![alt text](image-10.png)
-
-## Added env. variable to connected CosmoDB to the HttpTrigger
 
 ### getTrigger
 
@@ -29,11 +27,11 @@
 
 ![alt text](image-12.png)
 
-### Adding the cosmoDB connection string
+### Adding the cosmoDB primary connection string
 
 ![alt text](image-5.png)
 
-### Where the cosmoDB Connection String is located
+### Where the cosmoDB primary connection String is located
 
 ![alt text](image-6.png)
 
@@ -61,9 +59,9 @@
 
 ![alt text](image-18.png)
 
-### We created env variables for the Auth server
+### Environment variables for the Auth server
 
-These variable we added
+These variable were added:
 
 - AZURE_GET_URL
 - AZURE_POST_URL
@@ -84,6 +82,6 @@ These variable we added
 
 ![alt text](image-22.png)
 
-## Retrieveing products from our DB
+## Retrieving products from our DB
 
 ![alt text](image-23.png)
