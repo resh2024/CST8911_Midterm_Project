@@ -5,11 +5,11 @@
 
 ## Scenario 1
 
-## Screenshots
+## Policy Error
 
 ![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+
+**Note: We had a policy error trying to use the region US East and needed to use Canada Central and West US 2 instead.
 
 ## Creating a Function App
 
