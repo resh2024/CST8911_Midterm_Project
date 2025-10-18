@@ -9,7 +9,7 @@
 
 ![alt text](image.png)
 
-**Note: We had a policy error trying to use the region US East and needed to use Canada Central and West US 2 instead.
+**Note: We had a policy error trying to use the region US East and needed to use Canada Central and West US 2 instead.**
 
 ## Creating a Function App
 
