@@ -15,15 +15,20 @@
 
 ![alt text](image.png)
 
-**Note: We had a policy error trying to use the region US East and needed to use Canada Central and West US 2 instead.**
+- Created a low-cost Azure VM using the B1s size to keep costs down while still meeting project needs. Faced a policy restriction when trying to deploy in the US East region, so we switched to Canada Central for compatibility with the Azure for Students subscription.
 
 ## Creating a Function App
 
 ![alt text](image-7.png)
 
+- Created an Azure Function App named restful-function using the Node.js 22 LTS runtime stack. 
+
 ## Creating GET and POST HTTP trigger functions
 
 ![alt text](image-10.png)
+
+- Added HTTP trigger functions to handle GET and POST requests for the REST API.
+This lets the Function App respond to incoming requests without needing a full server.
 
 ### getTrigger
 
