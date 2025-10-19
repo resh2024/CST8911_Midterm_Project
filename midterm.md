@@ -114,7 +114,7 @@ These variables help the Auth Server securely connect with Azure Functions and g
 
 - Created a low-cost Azure VM using the B2s size to keep costs down while still meeting project needs, we originally tried creating a VM with the B1 size but faced issues when trying to use SSH to access VM.
 
--Faced a policy restriction when trying to deploy in the US East region, so we switched to Canada Central for compatibility with the Azure for Students subscription.
+- Faced a policy restriction when trying to deploy in the US East region, so we switched to Canada Central for compatibility with the Azure for Students subscription.
 
 ## Creating a VM to test our Authentication
 
