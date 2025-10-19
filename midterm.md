@@ -11,17 +11,11 @@
 
 ---
 
-## Policy Error
-
-![alt text](image.png)
-
-- Created a low-cost Azure VM using the B1s size to keep costs down while still meeting project needs. Faced a policy restriction when trying to deploy in the US East region, so we switched to Canada Central for compatibility with the Azure for Students subscription.
-
 ## Creating a Function App
 
 ![alt text](image-7.png)
 
-- Created an Azure Function App named restful-function using the Node.js 22 LTS runtime stack. 
+- Created an Azure Function App named restful-function using the Node.js 22 LTS runtime stack.
 
 ## Creating GET and POST HTTP trigger functions
 
@@ -40,21 +34,21 @@ This lets the Function App respond to incoming requests without needing a full s
 
 ![alt text](image-12.png)
 
-- Created another HTTP tirgger functions named postTrigger. This function handles POST requests to add new data to the database. Used the same Function authorization level for consistency with the GET trigger. 
+- Created another HTTP tirgger functions named postTrigger. This function handles POST requests to add new data to the database. Used the same Function authorization level for consistency with the GET trigger.
 
 ### Adding the cosmoDB primary connection string
 
 ![alt text](image-5.png)
 
 - Added the Cosmos DB connection string to the Function App’s environment variables.
-This allows the Function App to securely connect to the database without exposing credentials in code. 
+This allows the Function App to securely connect to the database without exposing credentials in code.
 
 ### Where the cosmoDB primary connection String is located
 
 ![alt text](image-6.png)
 
 - Found the Cosmos DB primary connection string under the Keys section in the Azure Portal.
-Copied this value into the Function App’s configuration settings to complete the database connection setup. 
+Copied this value into the Function App’s configuration settings to complete the database connection setup.
 
 ## Creating a Javascript function that fetches all data from the database
 
@@ -92,6 +86,10 @@ This setup lets both functions share the same connection and operate on the same
 
 ![alt text](image-17.png)
 
+- We originally thought of using the built in Entra ID with azure, but due to the policy on our education accounts we do not have access to Entra, next we looked into setting up a full oauth server within a vm but were not able to make it function properly. Finally, due to some javascript experience within our team we decided to set up JWT tokens to authenticate requests.
+
+- We decided to deploy the authentication server on app services instead of a full VM because it is more cost efficient and we don't need to worry about configuring a whole VM environment just to run the authentication server.
+
 - Deployed an App Service Web App to host the authentication server.
 Used the Canada Central region and linked it to the project’s GitHub repo for automatic updates
 
@@ -106,9 +104,17 @@ The app runs on Node.js 22 LTS for compatibility with the Function App backend.
 ### Environment variables for the Auth server
 
 Added environment variables such as AZURE_GET_URL, AZURE_POST_URL, JWT_SECRET, and PORT.
-These variables help the Auth Server securely connect with Azure Functions and generate authentication tokens. 
+These variables help the Auth Server securely connect with Azure Functions and generate authentication tokens.
 
 ![alt text](image-19.png)
+
+## VM Region Policy Error
+
+![alt text](image-24.png)
+
+- Created a low-cost Azure VM using the B2s size to keep costs down while still meeting project needs, we originally tried creating a VM with the B1 size but faced issues when trying to use SSH to access VM.
+
+-Faced a policy restriction when trying to deploy in the US East region, so we switched to Canada Central for compatibility with the Azure for Students subscription.
 
 ## Creating a VM to test our Authentication
 
@@ -121,8 +127,7 @@ The VM is hosted in the West US 2 region using the Azure for Students subscripti
 
 ![alt text](image-21.png)
 
-- Used curl commands on the VM to send login requests to the Auth Server.
-Confirmed a successful login response containing a valid JWT token for the admin user. 
+- After accessing the VM through an SSH connection we used curl commands on the VM to send login requests to the Auth Server. We were then able to confirm a successful login response containing a valid JWT token for the admin user.
 
 ## Sending a POST request to add a product to our db
 
@@ -130,7 +135,6 @@ Confirmed a successful login response containing a valid JWT token for the admin
 
 - Sent a POST request using curl to add new products to the Cosmos DB through the Auth Server’s /post route.
 The response confirmed that data was added successfully to the database.
-
 
 ## Retrieving products from our DB
 
