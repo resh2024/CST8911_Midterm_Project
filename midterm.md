@@ -1,6 +1,6 @@
 # CST8911 Midterm Project
 
-## Group 2 members - Desmond Murphy, Dharti Patel, Fayz Reshid, Kyle Mammangeorge, Olivie Bergeron
+## Group 2 members - Desmond Murphy, Dharti Patel, Fayz Reshid, Kylath Mamman George, Olivie Bergeron
 
 ## Chosen scenario - scenario 1
 
