@@ -1,9 +1,15 @@
 # CST8911 Midterm Project
 
-[Auth-Server Source Code](https://github.com/OlivBerg/auth-server)
+## Group 2 members - Desmond Murphy, Dharti Patel, Fayz Reshid, Kyle Mammangeorge, Olivie Bergeron
+
+## Chosen scenario - scenario 1
+
+## Auth-Server documentation and source code
+
+[Auth-Server Source Code](https://github.com/OlivBerg/auth-server),
 [Auth-Server Documentation](https://github.com/OlivBerg/auth-server/blob/main/readme.md)
 
-## Scenario 1
+---
 
 ## Policy Error
 
