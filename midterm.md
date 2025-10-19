@@ -34,18 +34,26 @@ This lets the Function App respond to incoming requests without needing a full s
 
 ![alt text](image-11.png)
 
+- Created a new HTTP trigger function named getTrigger. This function allows users to send a GET request and receive data from the database.The authorization is kept at Function app for basic authentication while testing.
+
 ### postTrigger
 
 ![alt text](image-12.png)
+
+- Created another HTTP tirgger functions named postTrigger. This function handles POST requests to add new data to the database. Used the same Function authorization level for consistency with the GET trigger. 
 
 ### Adding the cosmoDB primary connection string
 
 ![alt text](image-5.png)
 
+- Added the Cosmos DB connection string to the Function App’s environment variables.
+This allows the Function App to securely connect to the database without exposing credentials in code. 
+
 ### Where the cosmoDB primary connection String is located
 
 ![alt text](image-6.png)
 
+- 
 ## Creating a Javascript function that fetches all data from the database
 
 ![alt text](image-8.png)
