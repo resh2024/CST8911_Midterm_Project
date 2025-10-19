@@ -53,39 +53,60 @@ This allows the Function App to securely connect to the database without exposin
 
 ![alt text](image-6.png)
 
-- 
+- Found the Cosmos DB primary connection string under the Keys section in the Azure Portal.
+Copied this value into the Function App’s configuration settings to complete the database connection setup. 
+
 ## Creating a Javascript function that fetches all data from the database
 
 ![alt text](image-8.png)
+
+- Wrote a JavaScript (Node.js) function that connects to the Cosmos DB and fetches all records from the database.
+The function runs inside Azure Functions and returns JSON data when a GET request is made.
+Tested the function directly in the Azure portal and confirmed it returns data successfully
 
 ## Connecting the Trigger by adding function context into the function.json to fetch the database
 
 ![alt text](image-9.png)
 
+- Linked the HTTP trigger to the function by updating the function.json file.
+This ensures that the GET trigger runs the correct JavaScript function whenever a request is made.
+Helps connect the backend logic with the database so the data can be fetched properly.
+
 ## Creating a Javascript function that creates a new product in the database
 
 ![alt text](image-15.png)
+
+- Wrote a JavaScript (Node.js) function called postTrigger that creates a new product entry in the Cosmos DB.
+The function checks if the request body includes valid data before saving it to the database.
+This allows new records to be added securely using a POST request
 
 ## Connecting the Trigger by adding function context into the function.json to post data the database
 
 ![alt text](image-16.png)
 
+- Updated the function.json file to connect the HTTP triggers with the Cosmos DB input and output bindings.
+The bindings link the getTrigger and postTrigger functions to the same database container for reading and writing data.
+This setup lets both functions share the same connection and operate on the same dataset.
+
 ## Created App Service Web app for the Auth Server
 
 ![alt text](image-17.png)
+
+- Deployed an App Service Web App to host the authentication server.
+Used the Canada Central region and linked it to the project’s GitHub repo for automatic updates
 
 ### In the Web app we connected our github account to setup a CI/CD pipeline for our Auth Server
 
 ![alt text](image-18.png)
 
+- Connected the Web App to the GitHub repository (OlivBerg/auth-server) for continuous integration and deployment.
+Every push to the main branch automatically triggers a deployment using GitHub Actions.
+The app runs on Node.js 22 LTS for compatibility with the Function App backend.
+
 ### Environment variables for the Auth server
 
-These variable were added:
-
-- AZURE_GET_URL
-- AZURE_POST_URL
-- JWT_SECRET
-- PORT
+Added environment variables such as AZURE_GET_URL, AZURE_POST_URL, JWT_SECRET, and PORT.
+These variables help the Auth Server securely connect with Azure Functions and generate authentication tokens. 
 
 ![alt text](image-19.png)
 
@@ -93,14 +114,27 @@ These variable were added:
 
 ![alt text](image-20.png)
 
+- Set up a Linux (Ubuntu) VM to test the authentication process independently.
+The VM is hosted in the West US 2 region using the Azure for Students subscription.
+
 ## Creating a session with the Auth server hosted through a VM
 
 ![alt text](image-21.png)
+
+- Used curl commands on the VM to send login requests to the Auth Server.
+Confirmed a successful login response containing a valid JWT token for the admin user. 
 
 ## Sending a POST request to add a product to our db
 
 ![alt text](image-22.png)
 
+- Sent a POST request using curl to add new products to the Cosmos DB through the Auth Server’s /post route.
+The response confirmed that data was added successfully to the database.
+
+
 ## Retrieving products from our DB
 
 ![alt text](image-23.png)
+
+- Sent a GET request using curl to fetch all products from the database.
+The API returned all stored records, showing that both authentication and data retrieval worked correctly.
